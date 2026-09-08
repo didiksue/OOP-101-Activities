@@ -38,7 +38,6 @@ public class Canteen {
             System.out.print("Are you a student? (Y/N): ");
             student = input.next().toUpperCase().charAt(0);
 
-            // Check if input is valid
             if (itemNumber < 1 || itemNumber > 5 ||
                 quantity < 1 || quantity > 10 ||
                 (student != 'Y' && student != 'N')) {
@@ -48,7 +47,6 @@ public class Canteen {
                 continue;
             }
 
-            // Set price based on selected item
             if (itemNumber == 1) {
                 price = 80.00;
             }
@@ -65,10 +63,8 @@ public class Canteen {
                 price = 90.00;
             }
 
-            // Calculate subtotal
             subtotal = price * quantity;
 
-            // Calculate discount
             if (student == 'Y' && subtotal >= 500) {
                 discount = subtotal * 0.15;
             }
@@ -82,15 +78,12 @@ public class Canteen {
                 discount = 0;
             }
 
-            // Calculate order total
             orderTotal = subtotal - discount;
 
-            // Display result
             System.out.printf("\nSubtotal: $%.2f%n", subtotal);
             System.out.printf("Discount: $%.2f%n", discount);
             System.out.printf("Order total: $%.2f%n", orderTotal);
 
-            // Add to total
             totalItems = totalItems + quantity;
             totalBeforeDiscount = totalBeforeDiscount + subtotal;
             totalDiscount = totalDiscount + discount;
@@ -99,7 +92,6 @@ public class Canteen {
             orderAgain = input.next().toUpperCase().charAt(0);
         }
 
-        // Final amount
         double finalAmount = totalBeforeDiscount - totalDiscount;
 
         System.out.println("\n===== ORDER SUMMARY =====");
